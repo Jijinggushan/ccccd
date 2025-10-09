@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>刘宇 作品集 - 作品列表</title>
+    <style>
+        body,
+        head,
+        div {
+            margin: 0;
+            padding: 0;
+            background-color: #111;
+        }
+ 
+        p,
+        a,
+        span,
+        div,
+        button,
+        input,
+        h1, h2, h3, h4, h5, h6 {
+            color: whitesmoke;
+            outline: 1px solid blue;
+            user-select: none;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+ 
+        .main {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 564px;
+        }
+ 
+        h1 {
+            margin: 0px;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            text-align: center;
+            margin: 0;
+        }
+ 
+        button {
+            background: none;
+            border: 3px solid white;
+            margin: 25px;
+        }
+ 
+        header {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        header a {
+            font-size: 18px;
+            display: inline-block;
+            padding: 30px;
+            font-weight: bold;
+            transition: 0.5s;
+        }
+        
+        a:hover {
+            color: #888;
+        }
+        
+        .content {
+            width: 80%;
+            max-width: 1200px;
+            flex-grow: 1;
+            padding: 40px 0;
+        }
+        
+        .page-title {
+            font-size: 4em;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+        
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .work-item {
+            border: 1px solid #444;
+            padding: 20px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        
+        .work-item:hover {
+            background-color: #222;
+            transform: translateY(-5px);
+        }
+        
+        .work-thumbnail {
+            width: 100%;
+            height: 200px;
+            background-color: #333;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .work-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .work-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .work-category {
+            color: #888;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .work-desc {
+            color: #aaa;
+            font-size: 14px;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .view-more {
+            align-self: flex-end;
+            color: #888;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        
+        .view-more:hover {
+            color: whitesmoke;
+        }
+        
+        .back-link {
+            color: #888;
+            font-size: 20px;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .back-link:hover {
+            color: whitesmoke;
+        }
+ 
+        footer {
+            width: 100%;
+            padding: 30px 0;
+        }
+        
+        footer p {
+            font-size: 22px;
+            text-align: center;
+            margin: 0;
+        }
+        
+        /* 预览窗口样式 */
+        .preview-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .preview-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        .video-container {
+            width: 800px;
+            max-width: 90%;
+        }
+        
+        .video-container video {
+            width: 100%;
+            height: auto;
+        }
+        
+        .image-preview {
+            max-width: 100%;
+            max-height: 80vh;
+            display: block;
+        }
+        
+        /* 为不同类型作品添加数据属性 */
+        .work-item[data-type="video"] .work-thumbnail::after {
+            content: "▶";
+            position: absolute;
+            font-size: 40px;
+            color: white;
+            opacity: 0.7;
+        }
+       
+    </style>
+</head>
+ 
+<body>
+    <div class="main">
+        <header>
+            <a href="index.html">首页</a>
+            <a href="#">动画/动效</a>
+            <a href="#">摄像/平面</a>
+            <a href="#">摄影/短片</a>
+            <a href="#">网页/游戏</a>
+        </header>
+        
+        <div class="content">
+            <h1 class="page-title">作品集</h1>
+            
+            <div class="works-grid">
+                <!-- 作品项1 - 视频 -->
+                <div class="work-item" data-type="image" href="img/孟菲斯风格.png">
+                    <div class="work-thumbnail">
+                        <img src="img/thumbnail/孟菲斯风格.jpg" alt="3D动画短片缩略图">
+                    </div>
+                    <h2 class="work-title">音乐节海报</h2>
+                    <p class="work-category">动画/动效</p>
+                    <p class="work-desc">孟菲斯风格的尝试</p>
+                    <a href="#" class="view-more">查看详情 >>></a>
+                </div>
+                
+                <!-- 作品项3 - 网页 -->
+                <div class="work-item" data-type="web" href="subpage/2022金牛/index.html">
+                    <div class="work-thumbnail">
+                        <img src="subpage/thumbnail/金牛.jpg" alt="缩略图">
+                    </div>
+                    <h2 class="work-title">金牛猜谜</h2>
+                    <p class="work-category">网页</p>
+                    <p class="work-desc">在线猜谜网页，布局仅支持手机浏览器访问。</p>
+                    <a href="#" class="view-more">查看详情 >>></a>
+                </div>
+                
+                <!-- 作品项4 - 视频 -->
+                <div class="work-item" data-type="video" href="video/水仙风油精.mp4">
+                    <div class="work-thumbnail">
+                        <img src="video/thumbnail/水仙风油精.jpg" alt="雷锋">
+                    </div>
+                    <h2 class="work-title">水仙风油精，清爽一整夏</h2>
+                    <p class="work-category">AE动画</p>
+                    <p class="work-desc">从用途方面宣传水仙风油精，AE+C4D完成。</p>
+                    <a href="#" class="view-more">查看详情 >>></a>
+                </div>
+                <div class="work-item" data-type="video" href="video\雷锋动画.mp4">
+                    <div class="work-thumbnail">
+                        <img src="video/thumbnail/雷锋精神.jpg" alt="雷锋">
+                    </div>
+                    <h2 class="work-title">时代，传承，雷锋精神</h2>
+                    <p class="work-category">AN动画</p>
+                    <p class="work-desc">从“时代感”出发用动画形式阐述雷锋精神。</p>
+                    <a href="#" class="view-more">查看详情 >>></a>
+                </div>
+                
+                <div class="work-item" data-type="video" href="video/朝汐.mp4">
+                    <div class="work-thumbnail">
+                        <img src="video/thumbnail/朝汐.jpg" alt="朝夕">
+                    </div>
+                    <h2 class="work-title">朝汐</h2>
+                    <p class="work-category">AE动画</p>
+                    <p class="work-desc">灵感来自于B站V曲《朝汐》，使用到了E3D、particular等插件，AI配音。</p>
+                    <a href="#" class="view-more">查看详情 >>></a>
+                </div>
+                
+                <!-- <div class="work-item" data-type="file" href="https://yiyan.baidu.com/chat/MzUzMjE4OTAyNzo1MDEzMTEyMzI4">
+                    <div class="work-thumbnail">
+                        <img src="https://via.placeholder.com/400x200?text=建筑摄影集" alt="建筑摄影集缩略图">
+                    </div>
+                    <h2 class="work-title">坦克大战</h2>
+                    <p class="work-category">游戏</p>
+                    <p class="work-desc">自制坦克大战游戏，坦克具有寻路能力，可以自定义地图。</p>
+                    <a href="#" class="view-more">查看详情 >>></a>
+                </div> -->
+            </div>
+            
+            <a href="index.html" class="back-link">返回首页</a>
+        </div>
+
+        <footer>
+            <p>刘宇&nbsp/&nbsp个人作品集</p>
+        </footer>
+    </div>
+    
+    <!-- 视频预览窗口 -->
+    <div class="preview-overlay video-preview">
+        <span class="close-btn">×</span>
+        <div class="preview-content video-container">
+            <video controls autoplay>
+                <source src="" type="video/mp4">
+                您的浏览器不支持视频播放。
+            </video>
+        </div>
+    </div>
+    
+    <!-- 图片预览窗口 -->
+    <div class="preview-overlay picture-preview">
+        <span class="close-btn">×</span>
+        <div class="preview-content">
+            <img src="" alt="作品大图" class="image-preview">
+        </div>
+    </div>
+ 
+    <script>
+        function downloadFile(url, filename) {
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename || 'downloaded-file'; // 设置下载文件名
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+        function getFilenameFromUrl(url) {
+            // 创建临时 <a> 标签解析 URL
+            const a = document.createElement('a');
+            a.href = url;
+            
+            // 从路径中提取文件名（处理查询参数和哈希）
+            const path = a.pathname;
+            return path.substring(path.lastIndexOf('/') + 1).split('?')[0].split('#')[0];
+            }
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取所有作品项
+            const workItems = document.querySelectorAll('.work-item');
+            
+            // 视频预览元素
+            const videoPreview = document.querySelector('.video-preview');
+            const videoElement = videoPreview.querySelector('video');
+            const videoSource = videoElement.querySelector('source');
+            
+            // 图片预览元素
+            const picturePreview = document.querySelector('.picture-preview');
+            const imageElement = picturePreview.querySelector('.image-preview');
+            
+            // 关闭按钮
+            const closeButtons = document.querySelectorAll('.close-btn');
+            
+            // 为每个作品项添加点击事件
+            workItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const type = this.getAttribute('data-type');
+                    
+                    if (type === 'video') {
+                        const videoSrc = this.getAttribute('href');
+                        if (videoSrc) {
+                            videoSource.src = videoSrc;
+                            videoElement.load();
+                            videoPreview.style.display = 'flex';
+                        }
+                    } else if (type === 'image') {
+                        const imageSrc = this.getAttribute('href');
+                        if (imageSrc) {
+                            imageElement.src = imageSrc;
+                            picturePreview.style.display = 'flex';
+                        }
+                    } else if(type==='file'){
+                        const downLink=this.getAttribute('href');
+                        downloadFile(downLink, getFilenameFromUrl(downLink));
+                    }
+                    else if(type==='web'){
+                        const downLink=this.getAttribute('href');
+                        window.open(downLink,'_blank');
+                    }
+                });
+            });
+            
+            // 为关闭按钮添加事件
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // 隐藏所有预览窗口
+                    document.querySelectorAll('.preview-overlay').forEach(overlay => {
+                        overlay.style.display = 'none';
+                    });
+                    
+                    // 暂停视频
+                    videoElement.pause();
+                    videoElement.currentTime = 0;
+                });
+            });
+            
+            // 点击预览窗口外部也关闭
+            document.querySelectorAll('.preview-overlay').forEach(overlay => {
+                overlay.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        this.style.display = 'none';
+                        // 暂停视频
+                        if (this.classList.contains('video-preview')) {
+                            videoElement.pause();
+                            videoElement.currentTime = 0;
+                        }
+                    }
+                });
+            });
+            
+            // 按ESC键关闭预览
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    document.querySelectorAll('.preview-overlay').forEach(overlay => {
+                        overlay.style.display = 'none';
+                    });
+                    // 暂停视频
+                    videoElement.pause();
+                    videoElement.currentTime = 0;
+                }
+            });
+        });
+    </script>
+</body>
+ 
+</html>

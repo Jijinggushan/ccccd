@@ -1,0 +1,146 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+/*无需选中文字图片*/
+div{
+	user-select:none;
+}
+body{
+	/*background: gray;*/
+	background:url(../img/bg.png);
+	background-size: 100% 100%;
+}
+#app{
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+	overflow: hidden;
+}
+/*按钮*/
+.Btn{
+	/*子绝父相困境2*/
+	position: absolute;
+	bottom: 10%;
+	left: 25%;
+	/*position: relative;*/
+	width: 50%;
+	z-index: 6;
+	animation: 1s btnMove;
+}
+.Btn p{
+	position: absolute;
+	top: 38%;
+	left:10%;
+	color: lightyellow;
+	font-size: 5vw;
+	text-align: center;
+	width: 78%;
+}
+.Btn img{
+	width: 100%;
+}
+#background {
+	width: 100%;
+	height: 100%;
+	/*transform: translate3d(0px, 0px, 0px);*/
+	pointer-events:none
+}
+#fireWorks{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+#fireWorks img{
+	width: 30%;
+}
+#fireWorks img:nth-of-type(1){
+	animation: 2.5s fireworkBloom linear infinite;
+	animation-delay: 2.3s;
+	opacity: 0;
+}
+#fireWorks img:nth-of-type(2){
+	animation: 2.5s fireworkBloom linear infinite;
+	animation-delay: 1s;
+	opacity: 0;
+}
+#fireWorks img:nth-of-type(3){
+	animation: 3s fireworkBloom linear infinite;
+	animation-delay: 3s;
+	opacity: 0;
+}
+#fireWorks img:nth-of-type(4){
+	animation: 2.5s fireworkBloom linear infinite;
+	animation-delay: 0.5s;
+	opacity: 0;
+}
+#fireWorks img:nth-of-type(5){
+	animation: 2.5s fireworkBloom linear infinite;
+	animation-delay: 4s;
+	opacity: 0;
+}
+#fireWorks img:nth-of-type(6){
+	animation: 2.5s fireworkBloom linear infinite;
+	animation-delay: 0.2s;
+	opacity: 0;
+}
+#fireWorks img:nth-of-type(7){
+	animation: 2.5s fireworkBloom linear infinite;
+	animation-delay: 5.6s;
+	opacity:0;
+}
+#bg1{
+	
+}
+#bg1 img:nth-of-type(1){
+	position: absolute;
+	top: 0;
+	width: 100%;
+	max-height: 40%;
+	z-index: 1;
+}
+#bg1 img:nth-of-type(2){
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	max-height: 40%;
+	z-index: 1;	
+}
+
+#bg2{
+	display: none;
+	position: absolute;
+	bottom: -2%;
+	z-index: 2;
+	width: 100%;
+}
+
+#bg2 img{
+	width: 100%;
+	max-height: 40%;
+}
+#promptBox{
+	width: 45%;
+	height: 5%;
+	background: rgba(1,1,1,0.7);
+	
+	border-radius: 30px;
+	position: absolute;
+	top: 40%;
+	left: 28%;
+	
+	z-index: 10;
+	
+	animation: 0.5s fadeIn;
+	display: none;
+}
+
+#promptBox p{
+	color: white;
+	width: 100%;
+	text-align: center;
+	font-weight: bold;
+	font-size: 3vw;
+	margin-top: 5%;
+}

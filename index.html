@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>刘宇 作品集</title>
+    <style>
+        body,
+        head
+        {
+            margin: 0;
+            padding: 0;
+            background-color: #111;
+            
+        }
+        div{
+            margin: 0;
+            padding: 0;
+        }
+        p,
+        a,
+        span,
+        div,
+        button,
+        input {
+            color: whitesmoke;
+            outline: 1px solid blue;
+            user-select: none;
+        }
+        a{
+             text-decoration: none;
+        }
+
+        .main {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-width: 564px;
+            position: relative; /* 需要定位才能使用 z-index */
+            z-index: 2;
+        }
+
+        h1 {
+            margin: 0px;
+        }
+        h1,h2,h3,h4,h5,h6{
+            text-align: center;
+            margin: 0;
+        }
+
+        button {
+            background: none;
+            border:3px solid white;
+            margin: 25px;
+        }
+
+        header {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: center;
+        }
+        header a {
+           font-size: 18px;
+            display: inline-block;
+            padding: 30px;
+            font-weight: bold;
+            transition: 0.5s;
+        }
+        
+        a:hover{
+            color: #888;
+        }
+        .content{
+            min-width: 80%;
+            max-width: 90%;
+        }
+        .content h1{
+            font-size: 5em;
+            text-wrap: none;
+        }
+        .content h3{
+            font-size: 45px;
+        }
+        .content a{
+            color: #888;
+            font-size: 30px;
+            display: inline-block;
+            width:100%;
+            text-align: center;
+            margin-top: 5%;
+        }
+        footer p{
+            font-size: 22px;
+            text-align: center;
+        }
+        .bg{
+            position: absolute;
+            z-index: 0;
+            top: 20vh;
+            left: 10vw;
+            width: 80%;
+            font-size: 15vw;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            -webkit-text-stroke: 3px #222;
+            color:transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+
+        <!-- <div class="text">
+            <h1>刘宇 &nbsp 作品集</h1>
+            <p>精通Adobe Creative Suite（Photoshop/Premiere Pro/After Effects），熟练运用Cinema 4D进行三维建模与动态设计</p>
+            <p>掌握摄影摄像流程，掌握Ps、Ir调色、美化</p>
+            <p>掌握Unity引擎全流程开发，包括场景搭建、Shader编写及性能优化，具备C++语言开发能力与服务器端架构经验</p>
+            <p>能够独立开发响应式静态网站</p>
+        </div> -->
+
+        <header>
+            <a href="#">动画/动效</a>
+            <a href="#">摄像/平面</a>
+            <a href="#">摄影/短片</a>
+            <a href="#">网页/游戏</a>
+        </header>
+        <div class="content">
+            <h1>2025</h1>
+            <h1>数字媒体技术</h1>
+            <h3>作品集</h3>
+            <a href="list.html">点此查看主要作品&nbsp>>></a>
+        </div>
+
+        <footer>
+            <p>刘宇&nbsp/&nbsp个人作品集</p>
+        </footer>
+    </div>
+         <div class="bg">
+            WORKS
+        </div>
+</body>
+
+</html>

@@ -1,0 +1,128 @@
+#lanternRiddlePage {
+	width: 100%;
+	height: 100%;
+	display: none;
+	position: absolute;
+	z-index: 3;
+}
+#lanternRiddlePage>img{
+	width: 100%;
+	height: 95%;
+}
+
+/*灯谜灯笼共有*/
+#lantens{
+	position: absolute;
+	top: 25%;
+	left: 28%;
+	width: 44%;
+	
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+}
+#lantens div:nth-child(even){
+	margin-left: 20%;
+}
+
+/*灯谜灯笼外div*/
+.riddleLantern{
+	/*width: 33.4%;*/
+	width: 28%;
+	margin-bottom: 4%;
+	position: relative;
+	animation: 2s lantentZoom infinite;
+}
+
+/*灯谜灯笼图*/
+.riddleLantern img:nth-of-type(1){
+	width: 100%;
+}
+/*灯谜灯笼字*/
+.riddleLantern img:nth-of-type(2){
+	width: 30%;
+	position: absolute;
+	top: 15%;
+	left: 34%;
+}
+
+
+#answerDiv{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	background: rgba(1,1,1,0.4);
+	
+	display: none;
+}
+#answerDiv>img{
+	width: 90%;
+	position: absolute;
+	top: 20%;
+	
+}
+#dtbg{
+	position: absolute;
+	top: 20%;
+	left: 5%;
+}
+#qusText{
+	position: absolute;
+	top: 28%;
+	left: 30%;
+	width: 45%;
+}
+#qusText p{
+	width: 100%;
+	margin-bottom: 2%;
+}
+#qusText p img{
+	width: 5%;
+	margin-right: 3%;
+}
+
+#qusText p:nth-child(1){
+	font-size: 5vw;
+	font-weight: bold;
+	text-align: center;
+}
+#qusText p:nth-child(2){
+	font-size: 4vw;
+	text-align: center;
+}
+#qusText p:nth-of-type(n+3){
+	font-size: 3.5vw;
+}
+
+#answerDiv .Btn{
+	/*z-index: 3;*/
+	bottom: 30%;
+	animation: none;
+}
+
+#lanternRiddlePage>.Btn{
+	display: none;
+}
+
+
+#endCard {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 5;
+	background: rgba(1,1,1,0.5);
+	
+	display: none;
+}
+
+#endCard>img{
+	width: 80%;
+	margin: 25% 0 0 10%;
+	animation: 1.5s cardZoom;
+}

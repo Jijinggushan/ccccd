@@ -1,0 +1,51 @@
+#index{
+	width: 100%;
+	height: 100%;
+	display: none;
+	/*子绝父相悖论*/
+	position: absolute;
+	z-index: 1;
+}
+/*音乐按钮*/
+#music{
+	position: absolute;
+	top: 5%;
+	right: 5%;
+	width: 7%;
+	z-index: 5;
+}
+#music #musicBtn{
+	width: 100%;
+	animation: 1.5s musicBtnRotate linear infinite;
+	
+}
+#indexTitleImg{
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	
+	width: 100%;
+	height: 80vh;
+	/*margin-top: 20%;*/
+}
+#idnexLeftLanten{
+	position: absolute;
+	width: 20%;
+	transform: rotateY(180deg); 
+	top: 11%;
+	left: 13%;
+	animation: 5s lantentWobble linear infinite;
+	Transform-Origin:50% 0%
+}
+#idnexRightLanten{
+	position: absolute;
+	width: 20%;
+	top: 25%;
+	right: 13%;
+	
+	animation: 5s lantentWobble linear infinite;
+	Transform-Origin:50% 0%
+}
+
+
+
